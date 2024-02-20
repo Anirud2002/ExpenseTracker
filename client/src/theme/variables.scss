@@ -92,6 +92,10 @@
     --color: var(--ion-color-secondary);
   }
 
+  ion-item-divider {
+    --background: var(--ion-color-light-shade);
+  }
+
   ion-title{
     line-height: 44px;
   }
