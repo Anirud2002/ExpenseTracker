@@ -7,10 +7,10 @@
     </ion-menu>
   
     <div class="ion-page" id="main">
+      
       <ion-header>
-        <ion-toolbar class="ion-padding-end">
-          <ion-title>Main View</ion-title>
 
+        <ion-toolbar class="ion-padding-end">
           <ion-buttons slot="end">
             <ion-button *ngIf="!isLightTheme" (click)="switchTheme('light')">
               <ion-icon name="sunny"></ion-icon>
@@ -20,10 +20,13 @@
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
+
       </ion-header>
+
       <ion-content class="ion-padding"> 
         <ion-router-outlet></ion-router-outlet>
       </ion-content>
+
     </div>
   </ion-split-pane>
   

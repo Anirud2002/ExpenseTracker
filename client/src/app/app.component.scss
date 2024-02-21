@@ -3,3 +3,7 @@ ion-split-pane {
     --side-max-width: 300px;
     --border: 1px solid var(--ion-color-medium-tint);
   }
+
+  ion-header {
+    box-shadow: none;
+  }
