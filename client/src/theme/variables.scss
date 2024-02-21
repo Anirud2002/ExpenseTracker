@@ -75,7 +75,20 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  ion-content, ion-toolbar, ion-modal, ion-popover, ion-item, ion-list{
+  /** Page background **/
+  --ion-color-page: #e6e8ec;
+  --ion-color-page-rgb: 230, 231, 235;
+  --ion-color-page-contrast: #000000;
+  --ion-color-page-contrast-rgb: 0, 0, 0;
+  --ion-color-page-shade: #d7d8da;
+  --ion-color-page-tint: #f5f6f9;
+
+  ion-content, ion-toolbar {
+    --background: var(--ion-color-page);
+    --color: var(--ion-color-dark);
+  }
+
+  ion-modal, ion-popover, ion-item, ion-list{
     --background: var(--ion-color-secondary);
     --color: var(--ion-color-dark);
   }
@@ -160,6 +173,14 @@ body[color-theme="dark"] {
   --ion-color-light-contrast-rgb: 255,255,255;
   --ion-color-light-shade: #1e2023;
   --ion-color-light-tint: #383a3e;
+
+  /** Page background **/
+  --ion-color-page: #1F1F1F;
+  --ion-color-page-rgb: 31, 31, 31;
+  --ion-color-page-contrast: #ffffff;
+  --ion-color-page-contrast-rgb: 255,255,255;
+  --ion-color-page-shade: #46b0e0;
+  --ion-color-page-tint: #62ceff;
 }
 
 /*
@@ -256,4 +277,13 @@ html {
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
+}
+
+.ion-color-page {
+  --ion-color-base: var(--ion-color-page);
+  --ion-color-base-rgb: var(--ion-color-page-rgb);
+  --ion-color-contrast: var(--ion-color-page-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-page-contrast-rgb);
+  --ion-color-shade: var(--ion-color-page-shade);
+  --ion-color-tint: var(--ion-color-page-tint);
 }
