@@ -8,6 +8,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class YearComponent  implements OnInit {
   @ViewChild("renameInput") renameInput: HTMLIonInputElement;
   isRenaming: boolean = false;
+  showMonths: boolean = false;
 
   constructor() { }
 
@@ -28,6 +29,10 @@ export class YearComponent  implements OnInit {
     setTimeout(() => {
       this.renameInput.setFocus(); 
     },100)
+  }
+
+  toggleMonths() {
+    this.showMonths = !this.showMonths;
   }
 
 }

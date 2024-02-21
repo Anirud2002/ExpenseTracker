@@ -4,11 +4,63 @@
   <ion-input #renameInput value="2024" *ngIf="isRenaming" class="flex-1"></ion-input>
 
   <div class="space-x-2 pr-2">
-    <ion-button size="small" fill="clear" slot="end" class="ion-no-padding">
-      <ion-icon name="document-outline" size="small"></ion-icon>
+    <ion-button size="small" fill="clear" slot="end" class="ion-no-padding"  (click)="toggleMonths()">
+      <ion-icon [name]="showMonths ? 'eye-outline' : 'eye-off-outline'" size="small" color="primary"></ion-icon>
     </ion-button>
     <ion-button size="small" fill="clear" slot="end" class="ion-no-padding">
       <ion-icon name="trash-outline" size="small" color="danger"></ion-icon>
     </ion-button>
   </div>
 </ion-item-divider>
+
+<ion-list class="ion-no-padding" *ngIf="showMonths">
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-red-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-red-500"></ion-icon>
+    <ion-label>January</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-blue-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-blue-500"></ion-icon>
+    <ion-label>February</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-green-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-green-500"></ion-icon>
+    <ion-label>March</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-yellow-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-yellow-500"></ion-icon>
+    <ion-label>April</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-orange-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-orange-500"></ion-icon>
+    <ion-label>May</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-purple-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-purple-500"></ion-icon>
+    <ion-label>June</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-stone-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-stone-500"></ion-icon>
+    <ion-label>July</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-emrald-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-emerald-500"></ion-icon>
+    <ion-label>August</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-teal-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-teal-500"></ion-icon>
+    <ion-label>September</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-indigo-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-indigo-500"></ion-icon>
+    <ion-label>October</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-pink-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-pink-500"></ion-icon>
+    <ion-label>November</ion-label>
+  </div>
+  <div class="pl-4 py-2 cursor-pointer flex items-start space-x-4 month hover:border-l-2 hover:border-rose-500">
+    <ion-icon aria-hidden="true" name="ellipse" size="small" slot="start" class="text-rose-500"></ion-icon>
+    <ion-label>December</ion-label>
+  </div>
+
+</ion-list>

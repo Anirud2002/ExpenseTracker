@@ -75,17 +75,13 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  ion-content, ion-toolbar, ion-modal, ion-popover{
+  ion-content, ion-toolbar, ion-modal, ion-popover, ion-item, ion-list{
     --background: var(--ion-color-secondary);
     --color: var(--ion-color-dark);
   }
 
   ion-card{
     --background: var(--ion-color-light)
-  }
-
-  ion-icon{
-    color: var(--ion-color-primary);
   }
 
   ion-button{
