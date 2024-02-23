@@ -8,7 +8,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class YearComponent  implements OnInit {
   @ViewChild("renameInput") renameInput: HTMLIonInputElement;
   isRenaming: boolean = false;
-  showMonths: boolean = false;
+  showMonths: boolean = true;
 
   constructor() { }
 

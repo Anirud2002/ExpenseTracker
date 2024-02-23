@@ -1,0 +1,16 @@
+ion-card.expense-table{
+    color: var(--ion-color-dark);
+}
+
+ion-chip{
+    font-size: 12px;
+}
+
+.expense-data{
+    border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+ion-item.new-item {
+    --background: var(--ion-color-light);
+    --border-color: var(--ion-color-light-shade);
+}

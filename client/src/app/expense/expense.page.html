@@ -1,0 +1,85 @@
+<ion-content [fullscreen]="true">
+  <div class="w-11/12 mx-auto">
+    <p class="text-6xl">🐞</p>
+    <p>
+      <span class="text-6xl font-semibold">January</span>
+      <span class="text-sm">2024</span>
+    </p>
+
+    <ion-card class="expense-table ion-no-margin mt-8 rounded-lg">
+
+      <ion-grid class="mt-4">
+        <!-- HEADER ROW -->
+          <ion-row class="ion-padding-horizontal">
+            <ion-col sizeMd="2">
+              <ion-text>
+                <p class="font-semibold">Name</p>
+              </ion-text>
+            </ion-col>
+            <ion-col sizeMd="2">
+              <ion-text>
+                <p class="font-semibold flex items-center space-x-2"> <span>Category</span>  <ion-icon name="chevron-down-circle" size="small"></ion-icon></p>
+              </ion-text>
+            </ion-col>
+            <ion-col sizeMd="2">
+              <ion-text>
+                <p class="font-semibold">Amount</p>
+              </ion-text>
+            </ion-col>
+            <ion-col sizeMd="2">
+              <ion-text>
+                <p class="font-semibold">Date</p>
+              </ion-text>
+            </ion-col>
+            <ion-col sizeMd="4">
+              <ion-text>
+                <p class="font-semibold">Comment</p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+
+        <!-- DATA ROWS -->
+        <ion-row *ngFor="let item of [1,2,3]" class="expense-data ion-align-items-center ion-padding-horizontal">
+          <ion-col sizeMd="2">
+            <ion-text>
+              <p class="">Unrelated</p>
+            </ion-text>
+          </ion-col>
+          <ion-col sizeMd="2">
+            <ion-chip color="danger">Grocery</ion-chip>
+          </ion-col>
+          <ion-col sizeMd="2">
+            <ion-text>
+              <p class="">$ 155.00</p>
+            </ion-text>
+          </ion-col>
+          <ion-col sizeMd="2">
+            <ion-text>
+              <p class="">12 Feb, 2024</p>
+            </ion-text>
+          </ion-col>
+          <ion-col sizeMd="4">
+            <ion-text>
+              <p class="">This was the worst expense I did. Omfg</p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        
+        <ion-item button class="new-item">
+          <ion-icon slot="start" name="add" color="primary"></ion-icon>
+          <ion-label><p>New Item</p></ion-label>
+        </ion-item>
+
+        <!-- TOTAL CALCULATION ROW -->
+        <ion-row>
+          <ion-col offsetMd="4" sizeMd="3">
+            Total: $ 465.00
+          </ion-col>
+        </ion-row>
+      
+      </ion-grid>
+
+    </ion-card>
+
+  </div>
+</ion-content>
