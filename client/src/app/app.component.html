@@ -9,7 +9,6 @@
     <div class="ion-page" id="main">
       
       <ion-header>
-
         <ion-toolbar class="ion-padding-end">
           <ion-buttons slot="end">
             <ion-button *ngIf="!isLightTheme" (click)="switchTheme('light')">
@@ -29,5 +28,13 @@
 
     </div>
   </ion-split-pane>
+
+  <div class="absolute top-0">
+    <ion-menu-toggle>
+      <ion-button size="small" color="secondary">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-menu-toggle>
+  </div>
   
 </ion-app>

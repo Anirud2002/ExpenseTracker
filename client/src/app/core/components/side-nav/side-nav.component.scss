@@ -3,3 +3,7 @@ ion-item-divider {
     border: none;
     font-size: 12px;
 }
+
+.profile-btn > ion-item {
+    --background: var(--ion-color-light)
+}
