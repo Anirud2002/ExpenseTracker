@@ -1,0 +1,13 @@
+.expense-data, .reponsive-expense-data{
+    border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+ion-chip:hover {
+    ion-icon {
+        background-color: inherit;
+    }
+}
+
+ion-popover.datetime {
+    --width: 300px;
+}

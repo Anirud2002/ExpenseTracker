@@ -70,37 +70,7 @@
           </ion-row>
 
         <!-- DATA ROWS -->
-        <ion-row *ngFor="let item of [1,2,3]" class="expense-data ion-align-items-center ion-padding-horizontal">
-          <ion-col sizeMd="2">
-            <ion-text>
-              <p class="">Unrelated</p>
-            </ion-text>
-          </ion-col>
-          <ion-col sizeMd="2">
-            <ion-chip color="danger">Grocery</ion-chip>
-          </ion-col>
-          <ion-col sizeMd="2">
-            <ion-text>
-              <p class="">$ 155.00</p>
-            </ion-text>
-          </ion-col>
-          <ion-col sizeMd="2">
-            <ion-text>
-              <p class="">12 Feb, 2024</p>
-            </ion-text>
-          </ion-col>
-          <ion-col sizeMd="3.7">
-            <ion-text>
-              <p class="">This was the worst expense I did. Omfg</p>
-            </ion-text>
-          </ion-col>
-          <ion-col sizeMd="0.3">
-            <ion-button size="small" fill="clear" color="primary">
-              <ion-icon slot="icon-only" name="ellipsis-vertical" size="small"></ion-icon>
-            </ion-button>
-          </ion-col>
-
-        </ion-row>
+       <app-expense-detail *ngFor="let item of [1,2,3];"></app-expense-detail>
         
         <ion-item button class="new-item">
           <ion-icon slot="start" name="add" color="primary"></ion-icon>

@@ -1,0 +1,43 @@
+<ion-row class="expense-data ion-align-items-center ion-padding-horizontal">
+  <ion-col sizeMd="2">
+    <ion-text (click)="showNameInput()" *ngIf="!nameInputHidden">
+      <p class="">Unrelated</p>
+    </ion-text>
+    <ion-input #nameInput value="Unrelated" *ngIf="nameInputHidden" (ionBlur)="hideNameInput()"></ion-input>
+  </ion-col>
+  <ion-col sizeMd="2">
+    <ion-chip color="danger" class="flex w-fit">
+      <ion-icon name="close" slot=""></ion-icon>
+      <span>Grocery</span>
+    </ion-chip>
+  </ion-col>
+  <ion-col sizeMd="2">
+    <ion-text (click)="showAmountInput()" *ngIf="!amountInputHidden">
+      <p class="">$ 155.00</p>
+    </ion-text>
+    <ion-input #amountInput value="155.00" *ngIf="amountInputHidden" (ionBlur)="hideAmountInput()"></ion-input>
+  </ion-col>
+  <ion-col sizeMd="2">
+    <ion-text (click)="showDatetimePopover($event)" class="cursor-pointer">
+      <p class="">12 Feb, 2024</p>
+    </ion-text>
+
+    <ion-popover #popover [isOpen]="!datetimeHidden" (didDismiss)="hideDatetimePopover()" class="datetime">
+      <ng-template>
+        <ion-datetime presentation="date"></ion-datetime>
+      </ng-template>
+    </ion-popover>
+  </ion-col>
+  <ion-col sizeMd="3.7">
+    <ion-text (click)="showCommentInput()" *ngIf="!commentInputHidden">
+      <p class="">This was the worst expense I did. Omfg</p>
+    </ion-text>
+    <ion-input #commentInput value="This was the worst expense I did. Omfg" *ngIf="commentInputHidden" (ionBlur)="hideCommentInput()"></ion-input>
+  </ion-col>
+  <ion-col sizeMd="0.3">
+    <ion-button size="small" fill="clear" color="primary">
+      <ion-icon slot="icon-only" name="ellipsis-vertical" size="small"></ion-icon>
+    </ion-button>
+  </ion-col>
+
+</ion-row>
