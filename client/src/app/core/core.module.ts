@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { YearComponent } from './components/year/year.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,6 +13,7 @@ import { LogoComponent } from './components/logo/logo.component';
   imports: [
     CommonModule,
     IonicModule,
+    RouterModule
   ],
   exports: [SideNavComponent]
 })
