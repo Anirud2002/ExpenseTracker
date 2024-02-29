@@ -11,3 +11,8 @@ ion-chip:hover {
 ion-popover.datetime {
     --width: 300px;
 }
+
+ion-datetime {
+    --background: var(--ion-color-light);
+    color: var(--ion-color-dark);
+}
