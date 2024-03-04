@@ -16,8 +16,12 @@ ion-item {
     --border-color: var(--ion-color-light-shade);
 }
 
-ion-popover {
-    --width: 300px
+ion-popover.category {
+    --width: 300px;
+}
+
+ion-popover.emoji-popover {
+    --width: fit-content;
 }
 
 ion-input.category-input {

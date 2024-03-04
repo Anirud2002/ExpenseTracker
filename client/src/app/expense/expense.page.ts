@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserConfigService } from '../shared/services/user-config.service';
 
 @Component({
   selector: 'app-expense',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense.page.scss'],
 })
 export class ExpensePage implements OnInit {
+  isLightTheme: boolean;
 
-  constructor() { }
+  constructor(
+    private userConfigService: UserConfigService
+  ) { }
 
   ngOnInit() {
+    this.subscribeToThemeChange();
+  }
+
+  subscribeToThemeChange() {
+    this.userConfigService.$theme.subscribe(theme => {
+      this.isLightTheme = theme === "light";
+    })
   }
 
 }

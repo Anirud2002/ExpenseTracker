@@ -1,6 +1,15 @@
 <ion-content [fullscreen]="true" class="ion-padding-vertical">
   <div class="w-11/12 mx-auto">
-    <p class="text-6xl">🐞</p>
+    <ion-button fill="none" id="emoji-trigger">
+      <p class="text-6xl">🐞</p>
+    </ion-button>
+    <ion-popover class="emoji-popover" trigger="emoji-trigger" triggerAction="click">
+      <ng-template>
+        <ion-content>
+          <emoji-mart title="Pick your emoji…" [enableSearch]="false" [showPreview]="false" [darkMode]="!isLightTheme"></emoji-mart>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
     <p>
       <span class="text-6xl font-semibold">January</span>
       <span class="text-sm">2024</span>
@@ -21,7 +30,7 @@
                 <p class="font-semibold flex items-center space-x-2" id="click-trigger"> <span>Category</span>  <ion-icon name="chevron-down-circle" size="small"></ion-icon></p>
               </ion-text>
 
-              <ion-popover trigger="click-trigger" triggerAction="click">
+              <ion-popover class="category" trigger="click-trigger" triggerAction="click">
                 <ng-template>
                   <ion-content class="ion-padding">
                     <div class="flex items-center">
