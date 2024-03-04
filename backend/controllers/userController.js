@@ -12,7 +12,6 @@ const User = mongoose.model("User");
 
 router.post("/register", async (req, res) => {
     const newUser = new User;
-    console.log(req.body);
 
     newUser.userId = uuidv4();
     newUser.userName = req.body.userName;
@@ -59,7 +58,7 @@ const createToken = (userName) => {
     let token = jwt.sign({
         userName,
     },
-        "THISISASUPERSECRETKEYTHATNOONECANGUESS"
+        process.env.JWT_TOKEN_ID
     );
     return token;
 }

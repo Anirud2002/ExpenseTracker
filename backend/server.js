@@ -12,8 +12,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
 const userController = require("./controllers/userController");
+const expenseController = require("./controllers/expenseController");
 
 app.use(cors());
+
+// middleware to check if the jwt is valid or not
+const tokenValidity = require("./middlewares/tokenValidity")
+app.use("/expense", (req, res, next) => tokenValidity(req, res, next));
+
+app.use("/user", userController);
+app.use("/expense", expenseController);
 
 
 app.listen(port, () => {

@@ -11,3 +11,4 @@ async function main() {
 }
 
 require("./user.model");
+require("./expense.model");
