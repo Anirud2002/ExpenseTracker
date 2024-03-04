@@ -10,14 +10,7 @@
       
       <ion-header>
         <ion-toolbar class="ion-padding-end">
-          <ion-buttons slot="end">
-            <ion-button *ngIf="!isLightTheme" (click)="switchTheme('light')">
-              <ion-icon name="sunny"></ion-icon>
-            </ion-button>
-            <ion-button *ngIf="isLightTheme" (click)="switchTheme('dark')">
-              <ion-icon name="moon"></ion-icon>
-            </ion-button>
-          </ion-buttons>
+          <ion-toggle slot="end" mode="ios" [checked]="!isLightTheme" (ionChange)="toggleTheme()"></ion-toggle>
         </ion-toolbar>
 
       </ion-header>

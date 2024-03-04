@@ -7,3 +7,27 @@ ion-split-pane {
   ion-header {
     box-shadow: none;
   }
+
+ion-toggle::part(track),
+ion-toggle.toggle-checked::part(track) {
+  background: var(--ion-color-primary);
+
+  /* Required for iOS handle to overflow the height of the track */
+  overflow: visible;
+}
+
+ion-toggle::part(handle) {
+  background-image: url("../assets/icon/moon.svg");
+  background-size: 20px 20px;
+  background-position: center;
+  background-color: #fff;
+  background-repeat: no-repeat;
+}
+
+ion-toggle.toggle-checked::part(handle) {
+  background-image: url("../assets/icon/sunny.svg");
+  background-size: 20px 20px;
+  background-position: center;
+  background-color: #fff;
+  background-repeat: no-repeat;
+}

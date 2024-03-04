@@ -21,9 +21,14 @@ export class AppComponent {
     this.isLightTheme = await this.userConfigService.getTheme() === "light";
   }
 
-  async switchTheme(theme: "dark" | "light" | "system") {
-    await this.userConfigService.applyTheme(theme);
-    this.isLightTheme = !this.isLightTheme;
+  async toggleTheme() {
+    if(this.isLightTheme) { // if current theme is light, change to dark
+      await this.userConfigService.applyTheme("dark");
+      this.isLightTheme = false;
+    } else { // if current theme is dark, change to light
+      await this.userConfigService.applyTheme("light");
+      this.isLightTheme = true;
+    }
   }
 
 }
