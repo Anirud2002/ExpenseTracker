@@ -14,6 +14,7 @@ let ExpenseSchema = new Schema({
     emoji: {type: String, required: true},
     month: {type: String, required: true},
     year: {type: String, required: true},
+    categories: {type: [String], default: []},
     expenses: {type: [ExpenseDetailSchema], default: []}
 });
 

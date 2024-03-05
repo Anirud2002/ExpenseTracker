@@ -20,7 +20,7 @@ app.use(cors());
 const tokenValidity = require("./middlewares/tokenValidity")
 app.use("/api/expense", (req, res, next) => tokenValidity(req, res, next));
 
-app.use("/api//user", userController);
+app.use("/api/user", userController);
 app.use("/api/expense", expenseController);
 
 
