@@ -10,7 +10,10 @@ let ExpenseDetailSchema = new Schema({
 });
 
 let ExpenseSchema = new Schema({
-    partitionKey: {type: String, required: true},
+    partitionKey: {type: String, required: true, index: true},
+    emoji: {type: String, required: true},
+    month: {type: String, required: true},
+    year: {type: String, required: true},
     expenses: {type: [ExpenseDetailSchema], default: []}
 });
 

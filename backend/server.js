@@ -18,10 +18,10 @@ app.use(cors());
 
 // middleware to check if the jwt is valid or not
 const tokenValidity = require("./middlewares/tokenValidity")
-app.use("/expense", (req, res, next) => tokenValidity(req, res, next));
+app.use("/api/expense", (req, res, next) => tokenValidity(req, res, next));
 
-app.use("/user", userController);
-app.use("/expense", expenseController);
+app.use("/api//user", userController);
+app.use("/api/expense", expenseController);
 
 
 app.listen(port, () => {

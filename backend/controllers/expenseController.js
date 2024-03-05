@@ -41,13 +41,16 @@ router.post("/create", async (req, res) => {
 
     const newExpense = new Expense();
 
-    const{year, month} = req.body;
+    const{year, month, emoji} = req.body;
 
     if(!year || !month) {
         return res.status(400).json({message: "Bad Request!"});
     }
 
     newExpense.partitionKey = `${user.userName}-${year}-${month}`;
+    newExpense.month = month;
+    newExpense.year = year;
+    newExpense.emoji = emoji;
 
     await newExpense.save();
     return res.status(200).json(newExpense);
@@ -71,6 +74,27 @@ router.get("/get", async (req, res) => {
     const expense = await Expense.findOne({partitionKey});
 
     return res.status(200).json(expense);
-})
+});
+
+router.put("/update", async (req, res) => {
+    const user = await User.findOne({userName: req.user.userName});
+    if(!user) {
+        return res.status(401).json({message: "User not found!"});
+    }
+
+    const{year, month, emoji, expenses} = req.body;
+
+    let partitionKey = `${user.userName}-${year}-${month}`;
+
+    const expense = await Expense.findOne({partitionKey});
+
+    expense.emoji = emoji;
+    expense.expenses = expenses;
+
+    await expense.save();
+    return res.status(200).json(expense);
+});
+
+
 
 module.exports = router;
