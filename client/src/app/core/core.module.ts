@@ -15,6 +15,6 @@ import { RouterModule } from '@angular/router';
     IonicModule,
     RouterModule
   ],
-  exports: [SideNavComponent]
+  exports: [SideNavComponent, LogoComponent]
 })
 export class CoreModule { }
