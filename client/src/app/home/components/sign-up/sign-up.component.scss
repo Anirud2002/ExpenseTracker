@@ -2,3 +2,7 @@ ion-card {
     width: 100%;
     max-width: 400px;
 }
+
+ion-item {
+    --background: var(--ion-color-light);
+}
