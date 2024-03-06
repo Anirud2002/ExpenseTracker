@@ -15,7 +15,6 @@ export class LogoComponent  implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.logo.nativeElement);
     this.logo.nativeElement.style.height = this.height;
   }
 

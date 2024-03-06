@@ -4,12 +4,33 @@
   </ion-card-header>
 
   <ion-card-content class="flex flex-col items-center">
-    <ion-input label="Username" labelPlacement="floating" type="text"></ion-input>
-    <ion-input label="Firstname" labelPlacement="floating" type="text"></ion-input>
-    <ion-input label="Lastname" labelPlacement="floating" type="text"></ion-input>
-    <ion-input label="Password" labelPlacement="floating" type="text"></ion-input>
-    <ion-input label="Confirm Password" labelPlacement="floating" type="text"></ion-input>
+    <form [formGroup]="registerFormGroup" class="w-full">
+      <ion-item class="ion-no-padding">
+        <ion-input formControlName="userName" label="Username" labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="!formControlValid('userName')">Username is required*</ion-text>
+      
+      <ion-item class="ion-no-padding">
+        <ion-input formControlName="firstName" label="Firstname" labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="!formControlValid('firstName')">Firstname is required*</ion-text>
 
+      <ion-item class="ion-no-padding">
+        <ion-input formControlName="lastName" label="Lastname" labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="!formControlValid('lastName')">Lastname is required*</ion-text>
+
+      <ion-item class="ion-no-padding">
+        <ion-input formControlName="password" label="Password" labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="!formControlValid('password')">Password is required*</ion-text>
+      
+      <ion-item class="ion-no-padding">
+        <ion-input label="Confirm Password" labelPlacement="floating" type="text"></ion-input>
+      </ion-item>
+      <ion-text color="success" *ngIf="passwordMatched">Username is required*</ion-text>
+    </form>
+      
     <ion-button class="ion-margin-vertical">
       <ion-icon slot="start" name="log-in-outline"></ion-icon>
       Sign Up
