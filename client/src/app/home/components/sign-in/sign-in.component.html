@@ -1,0 +1,24 @@
+<ion-card class="mx-auto">
+  <ion-card-header>
+    <ion-card-title color="dark">Sign In</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="flex flex-col items-center">
+    <ion-input label="Username" labelPlacement="floating" type="text"></ion-input>
+    <ion-input label="Password" labelPlacement="floating" type="text"></ion-input>
+
+    <ion-button class="ion-margin-vertical">
+      <ion-icon slot="start" name="log-in-outline"></ion-icon>
+      Sign In
+    </ion-button>
+    <ion-button class="ion-margin-vertical" fill="clear">
+      <ion-icon slot="start" name="logo-google" color="tertiary"></ion-icon>
+      <ion-text color="dark">Sign In With Google</ion-text>
+    </ion-button>
+
+    <p>
+      Do not have an account? 
+      <ion-text color="tertiary" class="cursor-pointer" (click)="handleSignUpClicked()">Register</ion-text>
+    </p>
+  </ion-card-content>
+</ion-card>
