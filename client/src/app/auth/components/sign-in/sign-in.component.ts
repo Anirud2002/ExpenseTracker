@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +13,8 @@ export class SignInComponent  implements OnInit {
   loginFormGroup: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,15 @@ export class SignInComponent  implements OnInit {
 
   handleSignUpClicked() {
     this.signUpClicked.emit(true);
+  }
+
+  async handleLogin() {
+    if(this.loginFormGroup.invalid) {
+      this.loginFormGroup.markAllAsTouched();
+      return;
+    }
+
+    await this.authService.login(this.loginFormGroup.value);
   }
 
 }

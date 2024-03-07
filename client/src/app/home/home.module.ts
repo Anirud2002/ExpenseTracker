@@ -6,8 +6,6 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { CoreModule } from '../core/core.module';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 @NgModule({
@@ -19,6 +17,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     CoreModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, SignInComponent, SignUpComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}

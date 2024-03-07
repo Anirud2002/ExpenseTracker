@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'expense/:year/:month',
     loadChildren: () => import('./expense/expense.module').then( m => m.ExpensePageModule)
   },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
+  },
 ];
 
 @NgModule({

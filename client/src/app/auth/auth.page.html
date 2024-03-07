@@ -1,0 +1,10 @@
+<ion-content [fullscreen]="true" class="ion-padding-vertical">
+  <div class="flex flex-col items-center h-full justify-center">
+    <app-sign-in *ngIf="showSignInComponent" (signUpClicked)="toggleOnSignUp()" class="w-full ion-padding"></app-sign-in>
+    <app-sign-up *ngIf="showSignUpComponent" (signInClicked)="toggleOnSignIn()" class="w-full ion-padding"></app-sign-up>
+
+        <ion-button fill="clear" color="dark" *ngIf="showSignInComponent || showSignUpComponent" routerLink="/">
+            Back to Homepage
+        </ion-button>
+  </div>
+</ion-content>
