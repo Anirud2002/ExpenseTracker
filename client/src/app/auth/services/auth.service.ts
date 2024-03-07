@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { catchError, lastValueFrom, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from '../../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class AuthService {
   user: User;
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   async login(loginCreds: {userName: string, password: string}) {
@@ -23,7 +25,7 @@ export class AuthService {
     const response = await lastValueFrom(request);
 
     this.user = response;
-    
+    this.userService.setUser(this.user);
     if(this.user) { // if user was logged in successfully
       this.router.navigateByUrl("/");
     }
