@@ -21,17 +21,17 @@
       <ion-text color="danger" *ngIf="!formControlValid('lastName')">Lastname is required*</ion-text>
 
       <ion-item class="ion-no-padding">
-        <ion-input formControlName="password" label="Password" labelPlacement="floating" type="text"></ion-input>
+        <ion-input formControlName="password" label="Password" labelPlacement="floating" type="password"></ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="!formControlValid('password')">Password is required*</ion-text>
       
       <ion-item class="ion-no-padding">
-        <ion-input label="Confirm Password" labelPlacement="floating" type="text"></ion-input>
+        <ion-input label="Confirm Password" labelPlacement="floating" type="password" (ionInput)="checkPasswordMatched($event)"></ion-input>
       </ion-item>
-      <ion-text color="success" *ngIf="passwordMatched">Username is required*</ion-text>
+      <ion-text color="success" *ngIf="passwordMatched">Password matched!</ion-text>
     </form>
       
-    <ion-button class="ion-margin-vertical">
+    <ion-button class="ion-margin-vertical" (click)="handleRegister()">
       <ion-icon slot="start" name="log-in-outline"></ion-icon>
       Sign Up
     </ion-button>

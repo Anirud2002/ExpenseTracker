@@ -5,25 +5,48 @@
   </ion-card-header>
   <ion-card-content class="ion-no-padding overflow-y-auto h-3/4">
 
-    <div class="flex justify-between items-center ion-padding-start">
-      <p>Years</p>
-      <ion-button fill="clear" color="primary">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
-      </ion-button>
-    </div>
+    <ng-container *ngIf="(user$ | async); else dragonImage">
+      <div class="flex justify-between items-center ion-padding-start">
+        <p>Years</p>
+        <ion-button fill="clear" color="primary">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </div>
 
-    <app-year></app-year>
+      <app-year></app-year>
+    </ng-container>
+
+    <ng-template #dragonImage>
+      <div class="ion-text-center h-full flex items-center">
+        <img src="../../../../assets/cute-wallet.png" alt="">
+      </div>
+    </ng-template>
 
   </ion-card-content>
 
 
   <div class="absolute bottom-0 w-full profile-btn">
-    <ion-item lines="none" button detail>
+    <ion-item lines="none" button detail *ngIf="(user$ | async) as user; else signInText">
       <ion-avatar aria-hidden="true" slot="start">
         <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
-      <ion-label>Anirud Shrestha</ion-label>
+      <ion-label>{{user.firstName}} {{user.lastName}}</ion-label>
     </ion-item>
+
+    <ng-template #signInText>
+      <ion-item lines="none" button detail routerLink="/auth">
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>
+          <p>
+            <ion-text color="dark" >
+              Please <ion-text color="tertiary" class="cursor-pointer">SignIn</ion-text> to start adding you expenses.
+            </ion-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ng-template>
   </div>
   
 </ion-card>

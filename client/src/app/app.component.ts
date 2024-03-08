@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { UserConfigService } from './shared/services/user-config.service';
+import { UserService } from './user/user.service';
+import { User } from './user/user-modal';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,18 @@ import { UserConfigService } from './shared/services/user-config.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  user: User;
   isLightTheme: boolean;
   constructor(
     private platform: Platform,
+    private userService: UserService,
     private userConfigService: UserConfigService
   ) {
     this.initializeApp();
   }
 
   async initializeApp() {
+    this.userService.initializeUserOnAppInit();
     await this.userConfigService.applyThemeOnInit();
     this.isLightTheme = await this.userConfigService.getTheme() === "light";
   }

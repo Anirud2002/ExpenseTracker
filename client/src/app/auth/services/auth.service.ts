@@ -30,4 +30,14 @@ export class AuthService {
       this.router.navigateByUrl("/");
     }
   }
+
+  async register(registerCreds: {userName: string, firstName: string, lastName: string, password: string}): Promise<boolean> {
+    const request = this.http.post<User>(`${environment.apiUrl}/api/user/register`, registerCreds).pipe(
+      catchError(_ => of(null)) // means that registration was not successfull 
+    );
+
+    const response = await lastValueFrom(request);
+
+    return response != null; // return true if registration was successfull, else false
+  }
 }

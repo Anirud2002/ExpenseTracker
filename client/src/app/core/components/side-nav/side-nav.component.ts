@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../user/user.service';
+import { Observable } from 'rxjs';
+import { User } from '../../../user/user-modal';
 
 @Component({
   selector: 'app-side-nav',
@@ -6,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.scss'],
 })
 export class SideNavComponent  implements OnInit {
+  user$: Observable<User>;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+  ) { }
 
-  ngOnInit() {}
-
-  handleDoubleClick() {
-    console.log("Yooo")
+  ngOnInit() {
+    this.user$ = this.userService.user$;
   }
 
 }

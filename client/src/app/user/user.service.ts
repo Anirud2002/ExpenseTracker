@@ -14,6 +14,11 @@ export class UserService {
 
   constructor() { }
 
+  async initializeUserOnAppInit() {
+    this.user = await this.getUserFromLocalStorage(); // try to get the user from local storage
+    this.setUser(this.user);
+  }
+
   async setUser(user: User) {
     this.user = user;
     this._user.next(this.user);

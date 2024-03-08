@@ -5,7 +5,9 @@
         </h1>
         <p class="mt-2 text-center text-lg font-normal font-serif italic">An elegant app to organize your <span><ion-text color="tertiary">Expenses</ion-text></span> with visual insights.</p>
 
-        <p class="mt-8 text-center">SignIn to view your manage your expenses.</p>
-        <ion-button class="mt-4" color="tertiary" routerLink="/auth">SignIn</ion-button>
+        <div class="flex flex-col items-center" *ngIf="!(user$ | async)">
+            <p class="mt-8 text-center">SignIn to view your manage your expenses.</p>
+            <ion-button class="mt-4 w-fit mx-auto" color="tertiary" routerLink="/auth">SignIn</ion-button>
+        </div>
     </div>
 </ion-content>
