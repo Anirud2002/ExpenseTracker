@@ -7,7 +7,8 @@ let UserSchema = new Schema({
     lastName: {type: String, default: ""},
     passwordHash: {type: String, required: true},
     passwordSalt: {type: String, required: true},
-    email: {type: String},
+    email: {type: String, default: ""},
+    years: {type: [String], default:[]}
 });
 
 mongoose.model("User", UserSchema);
