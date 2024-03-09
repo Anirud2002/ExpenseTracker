@@ -12,6 +12,8 @@ export class SignInComponent  implements OnInit {
 
   loginFormGroup: FormGroup;
 
+  showPassword: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService
@@ -42,6 +44,10 @@ export class SignInComponent  implements OnInit {
     const control = this.loginFormGroup.get(formControlName);
 
     control.markAsTouched();
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   handleSignUpClicked() {

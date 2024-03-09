@@ -12,6 +12,8 @@ export class SignUpComponent  implements OnInit {
   registerFormGroup: FormGroup;
   passwordMatched: boolean = false;
 
+  showPassword: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService
@@ -54,6 +56,10 @@ export class SignUpComponent  implements OnInit {
     const{value} = e.detail;
     const control = this.registerFormGroup.get("password");
     this.passwordMatched = control.value === value;
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   async handleRegister() {

@@ -43,5 +43,6 @@ export class AuthService {
 
   async logout() {
     this.userService.setUser(null);
+    this.router.navigateByUrl("/");
   }
 }

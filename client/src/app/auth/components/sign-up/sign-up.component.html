@@ -21,7 +21,8 @@
       <ion-text color="danger" *ngIf="!formControlValid('lastName')">Lastname is required*</ion-text>
 
       <ion-item class="ion-no-padding">
-        <ion-input formControlName="password" label="Password" labelPlacement="floating" type="password"></ion-input>
+        <ion-input formControlName="password" label="Password" labelPlacement="floating" [type]="showPassword ? 'text':'password'"></ion-input>
+        <ion-icon slot="end" color="dark" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePasswordVisibility()"></ion-icon>
       </ion-item>
       <ion-text color="danger" *ngIf="!formControlValid('password')">Password is required*</ion-text>
       
