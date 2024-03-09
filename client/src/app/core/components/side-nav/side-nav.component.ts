@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../user/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../../../user/user-modal';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -13,10 +14,15 @@ export class SideNavComponent  implements OnInit {
 
   constructor(
     private userService: UserService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
     this.user$ = this.userService.user$;
+  }
+
+  handleLogout() {
+    this.authService.logout();
   }
 
 }

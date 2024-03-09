@@ -26,12 +26,27 @@
 
 
   <div class="absolute bottom-0 w-full profile-btn">
-    <ion-item lines="none" button detail *ngIf="(user$ | async) as user; else signInText">
-      <ion-avatar aria-hidden="true" slot="start">
-        <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-      <ion-label>{{user.firstName}} {{user.lastName}}</ion-label>
-    </ion-item>
+    <ng-container *ngIf="(user$ | async) as user; else signInText">
+      <ion-item id="user-popover" lines="none" button detail>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>{{user.firstName}} {{user.lastName}}</ion-label>
+      </ion-item>
+  
+      <ion-popover trigger="user-popover" side="right" dismissOnSelect>
+        <ng-template>
+          <ion-content>
+            <!-- TODO: ADD ITEM FOR NAVIGATING TO USER PAGE -->
+            <ion-item lines="none" button detail (click)="handleLogout()">
+              <ion-label color="danger">
+                <ion-text>Logout</ion-text>
+              </ion-label>
+            </ion-item>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </ng-container>
 
     <ng-template #signInText>
       <ion-item lines="none" button detail routerLink="/auth">

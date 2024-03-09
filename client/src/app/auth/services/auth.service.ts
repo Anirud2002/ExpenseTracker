@@ -40,4 +40,8 @@ export class AuthService {
 
     return response != null; // return true if registration was successfull, else false
   }
+
+  async logout() {
+    this.userService.setUser(null);
+  }
 }
