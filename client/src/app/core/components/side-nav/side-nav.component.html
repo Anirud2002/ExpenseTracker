@@ -5,7 +5,7 @@
   </ion-card-header>
   <ion-card-content class="ion-no-padding overflow-y-auto h-3/4">
 
-    <ng-container *ngIf="(user$ | async); else dragonImage">
+    <ng-container *ngIf="(user$ | async) as user; else dragonImage">
       <div class="flex justify-between items-center ion-padding-start">
         <p>Years</p>
         <ion-button fill="clear" color="primary">
@@ -13,7 +13,7 @@
         </ion-button>
       </div>
 
-      <app-year></app-year>
+      <app-year *ngFor="let year of user.years" [year]="year"></app-year>
     </ng-container>
 
     <ng-template #dragonImage>

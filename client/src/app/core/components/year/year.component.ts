@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-year',
@@ -6,6 +6,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./year.component.scss'],
 })
 export class YearComponent  implements OnInit {
+  @Input() year: string;
   @ViewChild("renameInput") renameInput: HTMLIonInputElement;
   isRenaming: boolean = false;
   showMonths: boolean = true;
