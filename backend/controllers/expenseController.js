@@ -95,6 +95,38 @@ router.put("/update", async (req, res) => {
     return res.status(200).json(expense);
 });
 
+// ADD YEAR
+
+router.post("/add/year", async (req, res) => {
+    const user = await User.findOne({userName: req.user.userName});
+    if(!user) {
+        return res.status(401).json({message: "User not found!"});
+    }
+
+    const yearExists = user.years.find(year => year === req.body.year);
+    if(yearExists) {
+        return res.status(500).json({message: `${req.body.year} aleady exists!`});
+    }
+
+    user.years.push(req.body.year);
+
+    await user.save();
+
+    return res.status(201).json(user.years);
+});
+
+// GET YEARS
+
+router.get("/years", async (req, res) => {
+    const user = await User.findOne({userName: req.user.userName});
+    if(!user) {
+        return res.status(401).json({message: "User not found!"});
+    }
+
+    return res.status(201).json(user.years);
+});
+
+
 
 
 module.exports = router;

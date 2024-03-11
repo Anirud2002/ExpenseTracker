@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
         lastName: user.lastName,
         token: createToken(user.userName)
     });
-})
+});
 
 const createToken = (userName) => {
     let token = jwt.sign({
