@@ -3,6 +3,7 @@ import { UserService } from '../../../user/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../../../user/user-modal';
 import { AuthService } from '../../../auth/services/auth.service';
+import { ExpenseService } from '../../../expense/services/expense.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -13,15 +14,23 @@ export class SideNavComponent  implements OnInit {
   @ViewChild("newYearInput") newYearInput: HTMLIonInputElement;
   user$: Observable<User>;
 
+  years: string[] = [];
+
   showNewYearInput: boolean = false;
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private expenseServices: ExpenseService
   ) { }
 
   ngOnInit() {
     this.user$ = this.userService.user$;
+    this.user$.subscribe((user) => user && this.getYears());
+  }
+
+  async getYears() {
+    this.years = await this.expenseServices.getYears();
   }
 
   handleLogout() {
