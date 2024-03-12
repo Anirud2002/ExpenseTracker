@@ -1,7 +1,7 @@
-<ion-content [fullscreen]="true" class="ion-padding-vertical">
+<ion-content [fullscreen]="true" class="ion-padding-vertical" *ngIf="expense">
   <div class="w-11/12 mx-auto">
     <ion-button fill="none" id="emoji-trigger">
-      <p class="text-6xl">🐞</p>
+      <p class="text-6xl">{{expense.emoji}}</p>
     </ion-button>
     <ion-popover class="emoji-popover" trigger="emoji-trigger" triggerAction="click">
       <ng-template>
@@ -11,8 +11,8 @@
       </ng-template>
     </ion-popover>
     <p>
-      <span class="text-6xl font-semibold">January</span>
-      <span class="text-sm">2024</span>
+      <span class="text-6xl font-semibold">{{expense.month}}</span>
+      <span class="text-sm">{{expense.year}}</span>
     </p>
 
     <ion-card class="expense-table ion-no-margin mt-8 rounded-lg">
@@ -79,7 +79,7 @@
           </ion-row>
 
         <!-- DATA ROWS -->
-       <app-expense-detail *ngFor="let item of [1,2,3];"></app-expense-detail>
+       <app-expense-detail *ngFor="let expenseDetail of expense.expenses;"></app-expense-detail>
         
         <ion-item button class="new-item">
           <ion-icon slot="start" name="add" color="primary"></ion-icon>

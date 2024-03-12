@@ -28,8 +28,38 @@ export class ExpenseService {
     return response;
   }
 
+  async addYear(year: string): Promise<string> {
+    const request = this.http.post<string>(`${environment.apiUrl}/api/expense/add/year`, {year})
+    .pipe(
+      catchError(_ => of(null))
+    );
+
+    const response = await lastValueFrom(request);
+
+    if(!response) {
+      // TODO: Handle the error like show a Toast or something
+    }
+
+    return response;
+  }
+
   async getExpenses(year: string, month: string): Promise<Expense> {
     const request = this.http.get<Expense>(`${environment.apiUrl}/api/expense/get?year=${year}&month=${month}`)
+    .pipe(
+      catchError(_ => of(null))
+    );
+
+    const response = await lastValueFrom(request);
+
+    if(!response) {
+      // TODO: Handle the error like show a Toast or something
+    }
+
+    return response;
+  }
+
+  async createExpense(expense : {year: string, month: string, emoji: string}): Promise<Expense> {
+    const request = this.http.post<Expense>(`${environment.apiUrl}/api/expense/create`, expense)
     .pipe(
       catchError(_ => of(null))
     );

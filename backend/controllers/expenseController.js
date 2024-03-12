@@ -112,7 +112,7 @@ router.post("/add/year", async (req, res) => {
 
     await user.save();
 
-    return res.status(201).json(user.years);
+    return res.status(201).json(req.body.year);
 });
 
 // GET YEARS

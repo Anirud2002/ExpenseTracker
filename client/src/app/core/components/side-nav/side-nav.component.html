@@ -14,7 +14,7 @@
       </div>
       <ion-item *ngIf="showNewYearInput">
         <ion-input type="text" class="ion-padding" #newYearInput (ionBlur)="toggleShowNewYearInput()"></ion-input>
-        <ion-icon slot="end" name="checkmark-outline" color="dark" button></ion-icon>
+        <ion-icon slot="end" name="checkmark-outline" color="dark" button (click)="handleAddNewYear()"></ion-icon>
       </ion-item>
 
       <app-year *ngFor="let year of years" [year]="year"></app-year>

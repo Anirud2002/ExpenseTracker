@@ -46,4 +46,11 @@ export class SideNavComponent  implements OnInit {
     }
   }
 
+  async handleAddNewYear() {
+    let newYear = await this.expenseServices.addYear(this.newYearInput.value + "");
+    if(newYear) {
+      this.years.push(newYear);
+    }
+  }
+
 }

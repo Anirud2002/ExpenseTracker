@@ -29,8 +29,19 @@ export class ExpensePage implements OnInit {
   }
 
   async getExpense() {
-    this.expense = await this.expenseService.getExpenses(this.year, this.month);
-    console.log(this.expense);
+    await this.expenseService.getExpenses(this.year, this.month)
+    .then(async res => {
+      if(res) {
+        this.expense = res;
+        return;
+      } else { // if there didn't exists any expense, then create it
+        await this.expenseService.createExpense({year: this.year, month: this.month, emoji: '🦬'})
+        .then(createResponse => {
+          this.expense = createResponse;
+          return;
+        })
+      }
+    });
   }
 
   getRouteParams() {

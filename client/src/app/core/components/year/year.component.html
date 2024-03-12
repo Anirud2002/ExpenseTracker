@@ -1,5 +1,5 @@
 <ion-item-divider class="flex items-center justify-between">
-  <ion-label *ngIf="!isRenaming" (dblclick)="handleDoubleClick()"> 2024 </ion-label>
+  <ion-label *ngIf="!isRenaming" (dblclick)="handleDoubleClick()"> {{year}} </ion-label>
 
   <ion-input #renameInput value="2024" *ngIf="isRenaming" class="flex-1"></ion-input>
 
