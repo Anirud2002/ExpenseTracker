@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserConfigService } from '../shared/services/user-config.service';
 import { ActivatedRoute } from '@angular/router';
 import { Expense } from './interfaces/expense-modal';
@@ -10,11 +10,14 @@ import { ExpenseService } from './services/expense.service';
   styleUrls: ['./expense.page.scss'],
 })
 export class ExpensePage implements OnInit {
+  @ViewChild("newExpenseNameInput") newExpenseNameInput: HTMLIonInputElement;
   isLightTheme: boolean;
   year: string;
   month: string;
 
   expense: Expense;
+
+  showNewExpenseDetailInputs: boolean = false;
 
   constructor(
     private userConfigService: UserConfigService,
@@ -54,6 +57,13 @@ export class ExpensePage implements OnInit {
     this.userConfigService.$theme.subscribe(theme => {
       this.isLightTheme = theme === "light";
     })
+  }
+
+  toggleNewExpenseDetailInputs() {
+    this.showNewExpenseDetailInputs = !this.showNewExpenseDetailInputs;
+    setTimeout(() => {
+      this.newExpenseNameInput.setFocus();
+    }, 100);
   }
 
 }

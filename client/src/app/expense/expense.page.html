@@ -77,11 +77,29 @@
               </ion-text>
             </ion-col>
           </ion-row>
+        
+        <ion-row class="ion-padding-horizontal" *ngIf="showNewExpenseDetailInputs">
+          <ion-col sizeMd="2">
+            <ion-input #newExpenseNameInput type="text" placeholder="Ex: Hang Out"></ion-input>
+          </ion-col>
+          <ion-col sizeMd="2">
+            <ion-input type="text" placeholder="Ex: miscellaneous"></ion-input>
+          </ion-col>
+          <ion-col sizeMd="2">
+            <ion-input type="text" placeholder="Ex: $ 55.5"></ion-input>
+          </ion-col>
+          <ion-col sizeMd="2">
+            <ion-input type="text" placeholder="Ex: 12 Feb, 2024"></ion-input>
+          </ion-col>
+          <ion-col sizeMd="4">
+            <ion-input type="text" placeholder="Ex: Hung out with Jake and Bryan at the movie hall."></ion-input>
+          </ion-col>
+        </ion-row>
 
         <!-- DATA ROWS -->
        <app-expense-detail *ngFor="let expenseDetail of expense.expenses;"></app-expense-detail>
         
-        <ion-item button class="new-item">
+        <ion-item button class="new-item" (click)="toggleNewExpenseDetailInputs()">
           <ion-icon slot="start" name="add" color="primary"></ion-icon>
           <ion-label><p>New Item</p></ion-label>
         </ion-item>

@@ -9,7 +9,7 @@ export class YearComponent  implements OnInit {
   @Input() year: string;
   @ViewChild("renameInput") renameInput: HTMLIonInputElement;
   isRenaming: boolean = false;
-  showMonths: boolean = true;
+  showMonths: boolean = false;
 
   constructor() { }
 
